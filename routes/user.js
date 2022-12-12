@@ -11,7 +11,6 @@ import { existEmail, existUserWithId, isValidRole } from '../helpers/db-validato
 import { 
   validarJWT,
   validarCampos,
-  isAdminRole,
   hasRole,
 } from '../middlewares/index.js';
 

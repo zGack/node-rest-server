@@ -1,5 +1,11 @@
+import { Category } from '../models/category.js';
+import { Product } from '../models/product.js';
 import { Role } from '../models/role.js';
 import { User } from '../models/user.js';
+
+/**
+ * Validators para Usuarios
+ */
 
 export const isValidRole = async(role = '') => {
   const existRole = await Role.findOne({ role });
@@ -27,3 +33,53 @@ export const existUserWithId = async(id) => {
   }
 
 }
+
+/**
+ *  Validators para Usuarios
+ */
+
+/**
+ *  Validators para Categorias
+ */
+
+export const existCategory = async(name = '') => {
+
+  const exist = await Category.findOne({name:name.toUpperCase()});
+
+  if (!exist) {
+    throw new Error(`La categoria ${name} no existe`)
+  }
+
+}
+
+export const existCategoryWithId = async(id) => {
+
+  const exist = await Category.findById(id);
+
+  if (!exist) {
+    throw new Error(`No existe una categoria con el id ${id}`)
+  }
+
+}
+
+/**
+ *  Validators para Categorias
+ */
+
+/**
+ *  Validators para Productos
+ */
+
+export const existProductWithId = async(id) => {
+
+  const exist = await Product.findById(id);
+
+  if (!exist) {
+    throw new Error(`No existe un producto con el id ${id}`)
+  }
+
+}
+
+/**
+ *  Validators para Productos
+ */

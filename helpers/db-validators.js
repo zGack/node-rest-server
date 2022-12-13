@@ -83,3 +83,18 @@ export const existProductWithId = async(id) => {
 /**
  *  Validators para Productos
  */
+
+/*
+* Validar colecciones permitidas
+*
+*/
+
+export const collectionsAvailables = (collection = '', collections = []) => {
+  const includes = collections.includes(collection);
+
+  if (!includes) {
+    throw new Error(`La coleccion ${collection} no es permitida - [${collections}]`);
+  }
+
+  return true;
+}
